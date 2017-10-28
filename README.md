@@ -5,9 +5,6 @@ API for Recipe and Ingredient Retrieval
 * Ivan Hernandez
 * JS Caughlin [Github](https://github.com/jcaughlin)[Twitter](@JSCaughlin)
 * Brian Kruse
-* Heather Entwiste
-
-
 
 
 ###Problem statement
