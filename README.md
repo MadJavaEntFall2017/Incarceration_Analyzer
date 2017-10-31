@@ -1,24 +1,22 @@
-# RubysRobustRecipeRepository
-API for Recipe and Ingredient Retrieval
+# Incarceration Analyzer
 
 ### Team No Name
 * Ivan Hernandez
 * JS Caughlin [Github](https://github.com/jcaughlin)[Twitter](@JSCaughlin)
 * Brian Kruse
 
+### Problem statement
+API retrieve statistics about inmates age, ethnticity, etc
 
-###Problem statement
-To create an API repository of recipes and ingredients that can be implented into anyone's webapp.
+### Project objectives
+**Demonstrate knowledge of material by creating:**  
+1. Java EE WebApp Design-User Portal  
+2. WebApp Deployment-AWS  
+3. Creating entities for appropriate classes Hibernate FULL CRUD  
+4. DataBase Design-MySQL & Hibernate  
+5. RESTful web services-Data Transfer in JSON  
 
+### Project plan  
 
-###Project objectives
-**Demonstrate knowledge of material by creating:**<br/>
-1. Java EE WebApp Design-User Portal<br/>
-2. WebApp Deployment-AWS<br/>
-3. Creating entities for appropriate classes Hibernate FULL CRUD<br/> 
-4. DataBase Design-MySQL & Hibernate<br/>
-5. RESTful web services-Data Transfer in JSON<br/>
-
-###Project plan 
-###Project Log Link
+### Project Log Link  
 
