@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/reciperepository.iml" filepath="$PROJECT_DIR$/reciperepository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/incarcerationanalyzer.iml" filepath="$PROJECT_DIR$/incarcerationanalyzer.iml" />
     </modules>
   </component>
 </project>
