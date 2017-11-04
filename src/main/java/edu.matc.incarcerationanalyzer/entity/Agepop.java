@@ -3,6 +3,7 @@ package edu.matc.incarcerationanalyzer.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "agepop")
 public class Agepop {
     private int ageid;
     private Integer under18;

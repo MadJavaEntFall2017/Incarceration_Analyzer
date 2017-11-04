@@ -41,7 +41,8 @@ public class Facility {
         this.population = population;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "facility", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     public Agepop getAgepop() {
         return this.agepop;
     }
@@ -50,7 +51,8 @@ public class Facility {
         this.agepop = agepop;
     }
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "facility", cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     public Ethnicitypop getEthnicitypop() {
         return this.ethnicitypop;
     }

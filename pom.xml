@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>edu.matc.reciperepository</groupId>
+  <groupId>edu.matc.incarcerationanalyzer</groupId>
   <artifactId>incarcerationanalyzer</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
 
-  <name>reciperepository</name>
+  <name>incarcerationanalyzer</name>
   <url>http://maven.apache.org</url>
 
     <build>
@@ -61,5 +61,19 @@
       <artifactId>hibernate-core</artifactId>
       <version>4.3.11.Final</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jdbc -->
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jdbc</artifactId>
+      <version>9.0.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.44</version>
+    </dependency>
+
+
   </dependencies>
 </project>
