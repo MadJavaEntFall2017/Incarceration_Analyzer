@@ -14,11 +14,11 @@ public class FacilityDaoTest {
     FacilityDao facilityDao = new FacilityDao();
     int initialFacilityCount;
 
-    @Test
+  /*  @Test
     public void getAllFacilities() throws Exception {
 
         List<Facility> facilities = facilityDao.getAllFacilities();
         assertTrue("Failed to get all facilities" + facilities.size(), facilities.size() > 0);
-    }
+    }*/
 
 }
