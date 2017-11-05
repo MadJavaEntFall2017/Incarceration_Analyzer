@@ -1,24 +1,87 @@
 package edu.matc.incarcerationanalyzer.persistence;
 
-import edu.matc.incarcerationanalyzer.entity.Facility;
+import edu.matc.incarcerationanalyzer.entity.*;
 //import org.apache.log4j.Logger;
+import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class FacilityDaoTest {
-
+/*
    // private final Logger log = Logger.getLogger(this.getClass());
     FacilityDao facilityDao = new FacilityDao();
     int initialFacilityCount;
 
-  /*  @Test
+  @Test
     public void getAllFacilities() throws Exception {
 
         List<Facility> facilities = facilityDao.getAllFacilities();
         assertTrue("Failed to get all facilities" + facilities.size(), facilities.size() > 0);
-    }*/
+    }
 
+    @Test
+    public void addRecord(){
+        final Logger log = Logger.getLogger(this.getClass());
+        Session session = null;
+        Transaction tx = null;
+
+      Facility facility = new Facility();
+
+      facility.setPopulation(2000);
+      facility.setName("Madison");
+
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+
+            facility.setPopulation(2000);
+            facility.setName("Madison");
+
+            session.save(facility);
+            tx.commit();
+        } catch (HibernateException he) {
+            if (tx != null) tx.rollback();
+            log.info("Error adding new record for " + he);
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+
+    }
+
+    @Test
+    public void addingRecordForAge(){
+        Agepop agepop = new Agepop();
+        agepop.setAge18To21(20);
+        agepop.setAge22To25(30);
+
+        FacilityDao facilityDao = new FacilityDao();
+        facilityDao.addNewRecord(agepop);
+    }
+
+    @Test
+    public void testingFacilitySQL() throws Exception{
+        List<FacilitySQL> facilitySQLS = new ArrayList<>();
+        List<AgepopSQL> agepopSQLS = new ArrayList<>();
+        List<EthnicpopSQL> ethnicpopSQLS = new ArrayList<>();
+        HibernateDaoAndSQL hibernateDaoAndSQL = new HibernateDaoAndSQL();
+
+        String sql = "SELECT * FROM facility";
+        facilitySQLS = hibernateDaoAndSQL.getQueryFromFacilitySQL(sql);
+
+        sql = "SELECT * FROM agepop";
+        agepopSQLS = hibernateDaoAndSQL.getQueryFromAgeSQL(sql);
+
+        sql="SELECT * FROM ethnicitypop";
+        ethnicpopSQLS = hibernateDaoAndSQL.getQueryFromEthnicSQL(sql);
+    }
+*/
 }
