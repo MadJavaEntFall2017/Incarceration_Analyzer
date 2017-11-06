@@ -33,10 +33,10 @@ public class FacilitySQL {
 
     @Override
     public String toString() {
-        return "FacilitySQL{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", population=" + population +
+        return "\n{" +
+                "\n\tid=" + id +
+                ", \n\tname='" + name + '\'' +
+                ", \n\tpopulation=" + population +
                 '}';
     }
 }

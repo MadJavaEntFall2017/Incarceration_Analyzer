@@ -60,13 +60,13 @@ public class EthnicpopSQL {
 
     @Override
     public String toString() {
-        return "EthnicpopSQL{" +
-                "ethnicId=" + ethnicId +
-                ", facilityId=" + facilityId +
-                ", asian=" + asian +
-                ", black=" + black +
-                ", hispanic=" + hispanic +
-                ", white=" + white +
+        return "\n{" +
+                "\n\tethnicId=" + ethnicId +
+                ", \n\tfacilityId=" + facilityId +
+                ", \n\tasian=" + asian +
+                ", \n\tblack=" + black +
+                ", \n\thispanic=" + hispanic +
+                ", \n\twhite=" + white +
                 '}';
     }
 }

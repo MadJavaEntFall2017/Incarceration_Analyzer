@@ -132,21 +132,21 @@ public class AgepopSQL {
 
     @Override
     public String toString() {
-        return "AgepopSQL{" +
-                "ageId=" + ageId +
-                ", facilityId=" + facilityId +
-                ", under18=" + under18 +
-                ", age18to21=" + age18to21 +
-                ", age22to25=" + age22to25 +
-                ", age26to30=" + age26to30 +
-                ", age31to35=" + age31to35 +
-                ", age36to40=" + age36to40 +
-                ", age41to45=" + age41to45 +
-                ", age46to50=" + age46to50 +
-                ", age51to55=" + age51to55 +
-                ", age56to60=" + age56to60 +
-                ", age61to65=" + age61to65 +
-                ", over65=" + over65 +
+        return "\n{" +
+                "\n\tageId=" + ageId +
+                ", \n\tfacilityId=" + facilityId +
+                ", \n\tunder18=" + under18 +
+                ", \n\tage18to21=" + age18to21 +
+                ", \n\tage22to25=" + age22to25 +
+                ", \n\tage26to30=" + age26to30 +
+                ", \n\tage31to35=" + age31to35 +
+                ", \n\tage36to40=" + age36to40 +
+                ", \n\tage41to45=" + age41to45 +
+                ", \n\tage46to50=" + age46to50 +
+                ", \n\tage51to55=" + age51to55 +
+                ", \n\tage56to60=" + age56to60 +
+                ", \n\tage61to65=" + age61to65 +
+                ", \n\tover65=" + over65 +
                 '}';
     }
 }
