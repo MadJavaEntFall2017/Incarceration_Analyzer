@@ -14,7 +14,7 @@ target/
 
 # Maven
 /target/
-/log/
+.log
 /lib/
 
 
@@ -29,7 +29,6 @@ target/
 *.so
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
