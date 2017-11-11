@@ -11,6 +11,9 @@ import java.util.List;
 
 public class FacilityDao {
     private final Logger log = Logger.getLogger(this.getClass());
+    Session session = null;
+    Transaction tx = null;
+
 
     public List<Facility> getAllFacilities() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
@@ -19,6 +22,7 @@ public class FacilityDao {
         return facilities;
     }
 
+<<<<<<< HEAD
     public Facility getFacility(int id) {
         Facility facility= null;
         Session session = null;
@@ -76,12 +80,27 @@ public class FacilityDao {
                     log.error("Error rolling back delete of facility id: " + facility, he2);
                 }
             }
+=======
+    public void addNewRecord(Object object) {
+
+        try {
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.save(object);
+            tx.commit();
+        } catch (HibernateException he) {
+            if (tx != null) tx.rollback();
+            log.info("Error adding new record for " + object.getClass(), he);
+>>>>>>> ivan
         } finally {
             if (session != null) {
                 session.close();
             }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ivan
     }
 }
 
