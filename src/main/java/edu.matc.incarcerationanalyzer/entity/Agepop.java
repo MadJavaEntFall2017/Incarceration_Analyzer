@@ -1,10 +1,15 @@
 package edu.matc.incarcerationanalyzer.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "agepop")
 public class Agepop {
+
     private int ageid;
     private Integer under18;
     private Integer age18To21;
@@ -19,7 +24,31 @@ public class Agepop {
     private Integer age61To65;
     private Integer over65;
 
+    public Agepop() {}
+
+    public Agepop (Integer under18, Integer age18To21,
+                   Integer age22To25, Integer age26To30,
+                   Integer age31To35, Integer age36To40,
+                   Integer age41To45, Integer age46To50,
+                   Integer age51To55, Integer age56To60,
+                   Integer age61To65, Integer over65) {
+                    this.under18 = under18;
+                    this.age18To21 = age18To21;
+                    this.age22To25 = age22To25;
+                    this.age26To30 = age26To30;
+                    this.age31To35 = age31To35;
+                    this.age36To40 = age36To40;
+                    this.age41To45 = age41To45;
+                    this.age46To50 = age46To50;
+                    this.age51To55 = age51To55;
+                    this.age56To60 = age56To60;
+                    this.age61To65 = age61To65;
+                    this.over65 = over65;
+    }
+    
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "ageid", nullable = false)
     public int getAgeid() {
         return ageid;

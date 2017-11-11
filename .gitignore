@@ -17,6 +17,10 @@ target/
 /log/
 /lib/
 
+hibernate.cfg.xml
+database.properties
+incarcerationanalyzer.iml
+
 
 # ignoring the /idea
 .idea/
