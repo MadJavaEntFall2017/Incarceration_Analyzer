@@ -145,4 +145,22 @@ public class HibernateDaoAndSQL {
         return row;
     }
 
+    public void produceData(List<FacilitySQL> facilitySQL, List<EthnicpopSQL> ethnicpopSQL, List<AgepopSQL> agepopSQL){
+        final Logger logger = Logger.getLogger(this.getClass());
+        String sql = "";
+        try {
+            sql = "SELECT * FROM facility";
+            facilitySQL = this.getQueryFromFacilitySQL(sql);
+
+            sql="SELECT * FROM ethnicitypop";
+            ethnicpopSQL = this.getQueryFromEthnicSQL(sql);
+
+            sql="SELECT * FROM agepop";
+            agepopSQL = this.getQueryFromAgeSQL(sql);
+        } catch (SQLException e) {
+            logger.info("StarupServlet.produceData().. Exception: " + e);
+            e.printStackTrace();
+        }
+    }
+
 }

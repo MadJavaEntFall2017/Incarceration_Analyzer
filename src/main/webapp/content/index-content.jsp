@@ -9,11 +9,33 @@
 
 <h1>Hey There</h1>
 
+<h2>Hello world!</h2>
+<form method="post" action="/HandleData">
+
+    <div class="form-group row">
+        <label for="facility" class="col-form-label col-md-2">Type</label>
+        <select class="custom-select ml-3" id="facility" name="facility">
+            <option value="all">All</option>
+            <option value="1">Federal</option>
+            <option value="2">Madison</option>
+        </select>
+    </div>
+
+    <br />
+    <div>
+        <input type="radio" name="Datatype" value="json" checked> JSON<br>
+        <input type="radio" name="Datatype" value="xml"> XML<br>
+    </div>
+
+
+     <input type="submit" id="submit" name="submit" />
+</form>
+<!--
 <ul>
-    <li>Item</li>
+    <li><a href="http://localhost:8080/teamproject/json/facility">Item</a></li>
     <li>Item2</li>
     <li>Item3</li>
     <li>Item4</li>
     <li>Item5</li>
-</ul>
+</ul>-->
 

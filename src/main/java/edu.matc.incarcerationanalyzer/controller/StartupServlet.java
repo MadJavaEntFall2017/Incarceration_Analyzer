@@ -37,12 +37,11 @@ public class StartupServlet {
     }
 
 
-    // The Java method will process HTTP GET requests
+/*
     @GET
-    // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("facility")
-    public Response getMessage(){
+    @Path("json/facility")
+    public Response getFacility(){
         produceData();
 
         response.addAll(facilitySQLS);
@@ -50,9 +49,21 @@ public class StartupServlet {
         return Response.status(200).entity(response.toString()).build();
     }
 
-    // The Java method will process HTTP GET requests
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("json/facility")
+    public Response postFacility(){
+        produceData();
+
+        response.addAll(facilitySQLS);
+
+        return Response.status(200).entity(response.toString()).build();
+    }
+*/
+
+
     @GET
-    // The Java method will produce content identified by the MIME Media type "text/plain"
     @Produces(MediaType.APPLICATION_JSON)
     @Path("alldata")
     public Response getWholeData(){

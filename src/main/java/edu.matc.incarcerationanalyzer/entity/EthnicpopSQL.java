@@ -66,7 +66,7 @@ public class EthnicpopSQL {
                 ", \n\tasian=" + asian +
                 ", \n\tblack=" + black +
                 ", \n\thispanic=" + hispanic +
-                ", \n\twhite=" + white +
+                ", \n\twhite=" + white + "\n"+
                 '}';
     }
 }

@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 //Defines the base URI for all resource URIs.
-@ApplicationPath("/")
+@ApplicationPath("teamproject")
 
 //The java class declares root resource and provider classes
 public class StartupApplication extends Application {
@@ -16,6 +16,8 @@ public class StartupApplication extends Application {
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
         h.add(StartupServlet.class );
+        h.add(FacilityById.class);
+        h.add(CheckinOut.class);
         return h;
     }
 }

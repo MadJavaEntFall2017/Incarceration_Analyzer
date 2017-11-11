@@ -146,7 +146,7 @@ public class AgepopSQL {
                 ", \n\tage51to55=" + age51to55 +
                 ", \n\tage56to60=" + age56to60 +
                 ", \n\tage61to65=" + age61to65 +
-                ", \n\tover65=" + over65 +
+                ", \n\tover65=" + over65 + "\n"+
                 '}';
     }
 }
