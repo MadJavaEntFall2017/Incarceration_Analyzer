@@ -1,6 +1,10 @@
 package edu.matc.incarcerationanalyzer.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name="facility")
@@ -11,7 +15,20 @@ public class Facility {
     private Agepop agepop;
     private Ethnicitypop ethnicitypop;
 
+    public Facility() {}
+    public Facility(String name, Integer population) {
+        this.name = name;
+        this.population = population;
+    }
+    public Facility(String name, Integer population, Agepop agepop, Ethnicitypop ethnicitypop) {
+        this.name = name;
+        this.population = population;
+        this.agepop = agepop;
+        this.ethnicitypop = ethnicitypop;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "facilityid", nullable = false)
     public int getFacilityid() {
         return facilityid;

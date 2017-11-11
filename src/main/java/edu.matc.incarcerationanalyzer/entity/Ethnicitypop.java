@@ -1,6 +1,10 @@
 package edu.matc.incarcerationanalyzer.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "ethnicitypop")
@@ -10,8 +14,28 @@ public class Ethnicitypop {
     private Integer black;
     private Integer hispanic;
     private Integer white;
+    private Facility facility;
+
+    public Ethnicitypop() {}
+
+    public Ethnicitypop(Integer asian, Integer black, Integer hispanic, Integer white) {
+        this.asian = asian;
+        this.black = black;
+        this.hispanic = hispanic;
+        this.white = white;
+    }
+
+    public Ethnicitypop(Integer asian, Integer black, Integer hispanic, Integer white, Facility facility) {
+        this.asian = asian;
+        this.black = black;
+        this.hispanic = hispanic;
+        this.white = white;
+        this.facility = facility;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name = "increment", strategy = "increment")
     @Column(name = "ethnicityid", nullable = false)
     public int getEthnicityid() {
         return ethnicityid;
@@ -59,6 +83,16 @@ public class Ethnicitypop {
 
     public void setWhite(Integer white) {
         this.white = white;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    public Facility getFacility() {
+        return this.facility;
+    }
+
+    public void setFacility(Facility facility) {
+        this.facility = facility;
     }
 
     @Override
