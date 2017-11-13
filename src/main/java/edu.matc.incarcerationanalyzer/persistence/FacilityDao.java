@@ -1,6 +1,7 @@
 package edu.matc.incarcerationanalyzer.persistence;
 
 import edu.matc.incarcerationanalyzer.entity.Facility;
+import edu.matc.incarcerationanalyzer.entity.FacilityXML;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -21,6 +22,15 @@ public class FacilityDao {
         session.close();
         return facilities;
     }
+
+    //Get all the facilities as List of objects
+    public List<FacilityXML> getAllFacilitiesXML() {
+        Session session = SessionFactoryProvider.getSessionFactory().openSession();
+        List<FacilityXML> facilities = session.createCriteria(Facility.class).list();
+        session.close();
+        return facilities;
+    }
+
 
     public Facility getFacility(int id) {
         Facility facility= null;

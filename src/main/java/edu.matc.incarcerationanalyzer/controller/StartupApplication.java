@@ -16,8 +16,9 @@ public class StartupApplication extends Application {
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
         h.add(StartupServlet.class );
-        h.add(FacilityById.class);
+        h.add(JsonOutput.class);
         h.add(CheckinOut.class);
+        h.add(XMLOutput.class);
         return h;
     }
 }

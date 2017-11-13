@@ -1,8 +1,8 @@
 package edu.matc.incarcerationanalyzer.controller;
 
-import edu.matc.incarcerationanalyzer.entity.AgepopSQL;
-import edu.matc.incarcerationanalyzer.entity.EthnicpopSQL;
-import edu.matc.incarcerationanalyzer.entity.FacilitySQL;
+
+import edu.matc.incarcerationanalyzer.entity.*;
+import edu.matc.incarcerationanalyzer.persistence.FacilityDao;
 import edu.matc.incarcerationanalyzer.persistence.HibernateDaoAndSQL;
 import org.apache.log4j.Logger;
 
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Path("json")
-public class FacilityById {
+public class OldJSONOutput {
 
 
     List<FacilitySQL> facilitySQLS = new ArrayList<>();
@@ -29,6 +29,8 @@ public class FacilityById {
     List<EthnicpopSQL> ethnicpopSQLS = new ArrayList<>();
     List<Object> response = new ArrayList<>();
     HibernateDaoAndSQL hibernateDaoAndSQL = new HibernateDaoAndSQL();
+    //FacilityDao facilityDao = new FacilityDao();
+
     String sql = "";
 
 
@@ -36,7 +38,7 @@ public class FacilityById {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/facility")
     public Response getFacility(@Context UriInfo info){
-        String idParameter = info.getQueryParameters().getFirst("id");
+        /*String idParameter = info.getQueryParameters().getFirst("id");
         if (idParameter == null || idParameter.equals("")) {
 
             produceData();
@@ -49,7 +51,8 @@ public class FacilityById {
         //produceData();
         response.addAll(facilitySQLS);
 
-        return Response.status(200).entity(response.toString()).build();
+        return Response.status(200).entity(response.toString()).build();*/
+        return null;
     }
 
 
@@ -57,7 +60,7 @@ public class FacilityById {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/facility")
     public Response postFacility(@Context UriInfo info){
-        String idParameter = info.getQueryParameters().getFirst("id");
+        /*String idParameter = info.getQueryParameters().getFirst("id");
         if (idParameter == null || idParameter.equals("")) {
 
             produceData();
@@ -70,8 +73,50 @@ public class FacilityById {
         //produceData();
         response.addAll(facilitySQLS);
 
-        return Response.status(200).entity(response.toString()).build();
+        return Response.status(200).entity(response.toString()).build();*/
+        return null;
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/facility/{id}/")
+    public Response getFacilityById(@PathParam("id") String id){
+
+        FacilityXML facilityXML = new FacilityXML();
+        facilityXML.setPopulation(5000);
+        facilityXML.setName("federal");
+        facilityXML.setId(2);
+        //Gson gson = new Gson();
+
+        /*Facility facility = new Facility();
+        FacilityDao facilityDao = new FacilityDao();
+        String facilityOutPut;
+
+        facility = facilityDao.getFacility(Integer.parseInt(id));
+        //facilityOutPut = gson.toJson(facility.toString());*/
+
+        return Response.status(200).entity(facilityXML).build();
+
+        //String item = gson.toJson(facilitySQL);
+        //String item2 = gson.toJson(facilitySQL2);
+        //lista.add(item);
+        //ista.add(item2);
+
+        //facilitySQLS.add(facilitySQL);
+        //return lista.toString();
+
+        /*produceDataById(idParameter);
+        String output = facilitySQLS.toString();
+        output += agepopSQLS.toString();*/
+        //response1.add(facilitySQLS.toString());
+        //response1.add(agepopSQLS.toString());
+
+        //return null;
+
+    }
+
+
+
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

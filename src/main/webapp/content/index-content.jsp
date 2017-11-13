@@ -8,6 +8,8 @@
   To change this template use Preferences | File and Code Templates--%>
 
 <h1>Hey There</h1>
+<h1>${ivan}</h1>
+<h2>${evan}</h2>
 
 <h2>Hello world!</h2>
 <form method="post" action="/HandleData">
@@ -16,15 +18,18 @@
         <label for="facility" class="col-form-label col-md-2">Type</label>
         <select class="custom-select ml-3" id="facility" name="facility">
             <option value="all">All</option>
-            <option value="1">Federal</option>
-            <option value="2">Madison</option>
+            <c:forEach var="facility" items="${facilities}">
+                <option value="${facility.facilityid}">${facility.name}</option>
+            </c:forEach>
+            <!--<option value="1">Federal</option>
+            <option value="2">Madison</option>-->
         </select>
     </div>
 
     <br />
     <div>
-        <input type="radio" name="Datatype" value="json" checked> JSON<br>
-        <input type="radio" name="Datatype" value="xml"> XML<br>
+        <input type="radio" name="dataType" value="json" checked> JSON<br>
+        <input type="radio" name="dataType" value="xml"> XML<br>
     </div>
 
 

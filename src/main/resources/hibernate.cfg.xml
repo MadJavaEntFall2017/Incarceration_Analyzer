@@ -23,9 +23,7 @@
         <mapping class="edu.matc.incarcerationanalyzer.entity.Ethnicitypop"/>
         <mapping class="edu.matc.incarcerationanalyzer.entity.Facility"/>
         <mapping class="edu.matc.incarcerationanalyzer.entity.Agepop"/>
-        <mapping class="edu.matc.incarcerationanalyzer.entity.AgepopEntity"/>
-        <mapping class="edu.matc.incarcerationanalyzer.entity.EthnicitypopEntity"/>
-        <mapping class="edu.matc.incarcerationanalyzer.entity.FacilityEntity"/>
+
 
     </session-factory>
 

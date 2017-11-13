@@ -100,4 +100,13 @@ public class Facility {
         result = 31 * result + (population != null ? population.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "facilityid=" + facilityid +
+                ", name='" + name + '\'' +
+                ", population=" + population +
+                '}';
+    }
 }

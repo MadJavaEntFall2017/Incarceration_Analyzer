@@ -1,7 +1,9 @@
 package edu.matc.incarcerationanalyzer.controller;
 
-import edu.matc.incarcerationanalyzer.entity.FacilityXML;
-import edu.matc.incarcerationanalyzer.entity.XMLList;
+
+import edu.matc.incarcerationanalyzer.entity.*;
+import edu.matc.incarcerationanalyzer.persistence.FacilityDao;
+import edu.matc.incarcerationanalyzer.persistence.HibernateDaoAndSQL;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,37 +12,68 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
-@Path("xml/ivan")
+@Path("testing")
 public class CheckinOut {
+    List<FacilitySQL> facilitySQLS = new ArrayList<>();
+    List<AgepopSQL> agepopSQLS = new ArrayList<>();
+    List<EthnicpopSQL> ethnicpopSQLS = new ArrayList<>();
+    List<FacilityXML> responseList = new ArrayList<>();
+    HibernateDaoAndSQL hibernateDaoAndSQL = new HibernateDaoAndSQL();
+    FacilityDao facilityDao = new FacilityDao();
+    String sql = "";
 
-    ArrayList<Object> list = new ArrayList<>();
     @GET
-    @Produces(MediaType.APPLICATION_XML)
-    @Path("")
-    public XMLList checkingThisOut(){
-        FacilityXML facilityXML = new FacilityXML();
-        facilityXML.setId(1);
-        facilityXML.setName("Federal");
-        facilityXML.setPopulation(5000);
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/sql")
+    public String checkingThisOut() throws SQLException {
+        /*Gson gson = new Gson();
+        List<String> lista = new ArrayList<>();
 
-        FacilityXML facilityXML2 = new FacilityXML();
-        facilityXML2.setId(2);
-        facilityXML2.setName("Madison");
-        facilityXML2.setPopulation(5000);
 
-        //list.add(facilityXML);
-        //list.add(facilityXML2);
+        FacilitySQL facilitySQL = new FacilitySQL();
+        facilitySQL.setName("ivan");
+        facilitySQL.setId(2);
+        facilitySQL.setPopulation(5000);
 
-        XMLList wholeList = new XMLList();
-        wholeList.addFacility(facilityXML);
-        wholeList.addFacility(facilityXML2);
+        FacilitySQL facilitySQL2 = new FacilitySQL();
+        facilitySQL2.setName("Evan");
+        facilitySQL2.setId(2);
+        facilitySQL2.setPopulation(5000);
 
-        //Response.accepted(facilityXML2);
-        return wholeList;
+        String item = gson.toJson(facilitySQL);
+        String item2 = gson.toJson(facilitySQL2);
+        lista.add(item);
+        lista.add(item2);
+
+        //facilitySQLS.add(facilitySQL);*/
+        //return lista.toString();
+        return null;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/hibernate")
+    public String checkingThisOutHibernate() throws SQLException {
+        /*Gson gson = new Gson();
+        List<String> lista = new ArrayList<>();*/
+
+
+
+
+        //String item = gson.toJson(facilitySQL);
+        //String item2 = gson.toJson(facilitySQL2);
+        //lista.add(item);
+        //ista.add(item2);
+
+        //facilitySQLS.add(facilitySQL);
+        //return lista.toString();
+        return null;
     }
 }
