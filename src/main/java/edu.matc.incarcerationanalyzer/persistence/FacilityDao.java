@@ -31,22 +31,6 @@ public class FacilityDao {
     }
 
 
-    /*public Facility getFacility(int id) {
-        Facility facility= null;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            facility = (Facility) session.get(Facility.class, id);
-        } catch (HibernateException he) {
-            log.error("Error getting facility with id: " + id, he);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return facility;
-    }*/
-
     public Facility getFacility(int id) {
         Facility facility= null;
         Session session = null;
@@ -106,21 +90,4 @@ public class FacilityDao {
             }
         }
     }
-
-/*    public void addNewRecord(Object object) {
-
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-            session.save(object);
-            tx.commit();
-        } catch (HibernateException he) {
-            if (tx != null) tx.rollback();
-            log.info("Error adding new record for " + object.getClass(), he);
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-    }*/
 }
