@@ -4,10 +4,8 @@ import edu.matc.incarcerationanalyzer.entity.*;
 import edu.matc.incarcerationanalyzer.persistence.FacilityDao;
 import edu.matc.incarcerationanalyzer.utility.Convertions;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,73 +15,126 @@ public class XMLOutput {
 
     //creating XML entities
     GenerateListOfXML wholeList = new GenerateListOfXML();
-    FacilityXML facilityXML = new FacilityXML();
-    AgePopXML agePopXML = new AgePopXML();
-    EthnicPopXML ethnicPopXML = new EthnicPopXML();
+    FacilityXML facilityXML     = new FacilityXML();
+    AgePopXML agePopXML         = new AgePopXML();
+    EthnicPopXML ethnicPopXML   = new EthnicPopXML();
 
     //creating hibernate entities
-    Facility facility = new Facility();
-    FacilityDao facilityDao = new FacilityDao();
+    Facility facility           = new Facility();
+    FacilityDao facilityDao     = new FacilityDao();
 
     List<Facility> listFacilities = new ArrayList<>();
-    Convertions convertions = new Convertions();
+    Convertions convertions     = new Convertions();
+    @QueryParam("both") private String both;
 
-
-    @GET
-    @Path("")
-    public Response getAllFacilityXML(){
-        listFacilities = facilityDao.getAllFacilities();
-
-        for (Facility currentItem: listFacilities
-             ) {
-            facilityXML = new FacilityXML();
-            convertions.facilityToXML(facilityXML, currentItem);
-            wholeList.addFacility(facilityXML);
-        }
-
-        return Response.status(200).entity(wholeList).build();
-    }
-
-    @POST
-    @Path("")
-    public Response postAllFacilityXML(){
-        return this.getAllFacilityXML();
-    }
 
     @GET
     @Path("/all")
-    public Response getTheWholeData(){
+    public Response getAllFacility(){
         listFacilities = facilityDao.getAllFacilities();
         GroupOfXML groupOfXML;
 
-        for (Facility currentItem: listFacilities
-             ) {
-            groupOfXML  = new GroupOfXML();
-            facilityXML = new FacilityXML();
-            ethnicPopXML = new EthnicPopXML();
-            agePopXML = new AgePopXML();
+        if (both == null || both.equals("")){
 
-            convertions.facilityToXML(facilityXML, currentItem);
-            convertions.ethnicToXML(ethnicPopXML, currentItem.getEthnicitypop());
-            convertions.ageToXML(agePopXML, currentItem.getAgepop());
+            for (Facility currentItem: listFacilities
+                    ) {
+                facilityXML = new FacilityXML();
+                convertions.facilityToXML(facilityXML, currentItem);
+                wholeList.addFacility(facilityXML);
+            }
 
-            groupOfXML.setFacilityXML(facilityXML);
-            groupOfXML.setEthnicPopXML(ethnicPopXML);
-            groupOfXML.setAgePopXML(agePopXML);
+        } else {
+
+            for (Facility currentItem: listFacilities
+                    ) {
+                groupOfXML  = new GroupOfXML();
+                facilityXML = new FacilityXML();
+                ethnicPopXML = new EthnicPopXML();
+                agePopXML = new AgePopXML();
+
+                convertions.facilityToXML(facilityXML, currentItem);
+                convertions.ethnicToXML(ethnicPopXML, currentItem.getEthnicitypop());
+                convertions.ageToXML(agePopXML, currentItem.getAgepop());
+
+                groupOfXML.setFacilityXML(facilityXML);
+                groupOfXML.setEthnicPopXML(ethnicPopXML);
+                groupOfXML.setAgePopXML(agePopXML);
             /*wholeList.addFacility(facilityXML);
             wholeList.addEthnic(ethnicPopXML);
             wholeList.addAge(agePopXML);*/
 
-            wholeList.addGroupOfXml(groupOfXML);
+                wholeList.addGroupOfXml(groupOfXML);
 
+            }
         }
+
         return Response.status(200).entity(wholeList).build();
     }
 
     @POST
     @Path("/all")
     public Response postTheWholeData(){
-        return this.getTheWholeData();
+        return this.getAllFacility();
+    }
+
+
+    @GET
+    @Path("/all/age")
+    public Response getAllFacilityAndAge(){
+        listFacilities = facilityDao.getAllFacilities();
+        GroupOfXML groupOfXML;
+
+        for (Facility currentItem: listFacilities
+                ) {
+            groupOfXML  = new GroupOfXML();
+            facilityXML = new FacilityXML();
+            agePopXML = new AgePopXML();
+
+            convertions.facilityToXML(facilityXML, currentItem);
+            convertions.ageToXML(agePopXML, currentItem.getAgepop());
+
+            groupOfXML.setFacilityXML(facilityXML);
+            groupOfXML.setAgePopXML(agePopXML);
+
+            wholeList.addGroupOfXml(groupOfXML);
+        }
+        return Response.status(200).entity(wholeList).build();
+    }
+
+    @POST
+    @Path("/all/age")
+    public Response postAllFacilityAndAge(){
+
+        return this.getAllFacilityAndAge();
+    }
+
+@GET
+@Path("/all/ethnic")
+public Response getAllFacilityAndEthnic(){
+    listFacilities = facilityDao.getAllFacilities();
+    GroupOfXML groupOfXML;
+
+    for (Facility currentItem: listFacilities
+            ) {
+        groupOfXML  = new GroupOfXML();
+        facilityXML = new FacilityXML();
+        ethnicPopXML = new EthnicPopXML();
+
+        convertions.facilityToXML(facilityXML, currentItem);
+        convertions.ethnicToXML(ethnicPopXML, currentItem.getEthnicitypop());
+
+        groupOfXML.setFacilityXML(facilityXML);
+        groupOfXML.setEthnicPopXML(ethnicPopXML);
+
+        wholeList.addGroupOfXml(groupOfXML);
+    }
+    return Response.status(200).entity(wholeList).build();
+}
+
+    @POST
+    @Path("/all/ethnic")
+    public Response postAllFacilityAndEthnic(){
+        return this.getAllFacilityAndEthnic();
     }
 
 
