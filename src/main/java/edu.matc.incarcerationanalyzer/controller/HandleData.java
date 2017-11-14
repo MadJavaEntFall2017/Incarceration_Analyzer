@@ -15,13 +15,25 @@ public class HandleData extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String facilityid = request.getParameter("facility");
         String type = request.getParameter("dataType");
+        String age = request.getParameter("age");
+        String ethnic = request.getParameter("ethnic");
+
 
         //building up the url
+        String applicationPath = "incarceration/";
+        String defaultResource = "/facility/";
         String url = request.getRequestURL().toString();
-        int urlLength = request.getRequestURL().length();
 
-        url = request.getRequestURL().delete(22, urlLength).toString();
-        url += "teamproject/" + type + "/facility/" + facilityid;
+        int urlLength = request.getRequestURL().length();
+        url = request.getRequestURL().delete(urlLength - 10, urlLength).toString();
+
+
+        //url += applicationPath + type + defaultResource + facilityid;
+        url += applicationPath + type + defaultResource;
+
+        if (age.equals("on") && ethnic.equals("on")) {
+
+        }
 
         response.sendRedirect(url);
 

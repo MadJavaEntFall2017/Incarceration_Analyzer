@@ -8,11 +8,9 @@
   To change this template use Preferences | File and Code Templates--%>
 
 <h1>Hey There</h1>
-<h1>${ivan}</h1>
-<h2>${evan}</h2>
 
 <h2>Hello world!</h2>
-<form method="post" action="/HandleData">
+<form method="post" action="HandleData">
 
     <div class="form-group row">
         <label for="facility" class="col-form-label col-md-2">Type</label>
@@ -21,8 +19,6 @@
             <c:forEach var="facility" items="${facilities}">
                 <option value="${facility.facilityid}">${facility.name}</option>
             </c:forEach>
-            <!--<option value="1">Federal</option>
-            <option value="2">Madison</option>-->
         </select>
     </div>
 
@@ -31,7 +27,10 @@
         <input type="radio" name="dataType" value="json" checked> JSON<br>
         <input type="radio" name="dataType" value="xml"> XML<br>
     </div>
-
+    <div>
+        Age:    <input type="checkbox" id="age" name="age"><br>
+        Ethnic: <input type="checkbox" id="ethnic" name="ethnic"><br>
+    </div>
 
      <input type="submit" id="submit" name="submit" />
 </form>

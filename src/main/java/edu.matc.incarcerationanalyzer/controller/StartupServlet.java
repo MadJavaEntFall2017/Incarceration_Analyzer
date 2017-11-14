@@ -17,7 +17,8 @@ public class StartupServlet {
     public Response welcomeMessage(){
 
         String output = "Welcome to Incarceration API, type " +
-                "\n/facility/all        to retrieve all facilities" +
+                "\n/facility            to retrieve all the facilities" +
+                "\n/facility/all        to retrieve all facilities including ages and ethnics" +
                 "\n/facility/id         to retrieve a specific facility";
 
         return Response.status(200).entity(output).build();

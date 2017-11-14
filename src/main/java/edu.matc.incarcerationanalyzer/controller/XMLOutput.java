@@ -4,8 +4,10 @@ import edu.matc.incarcerationanalyzer.entity.*;
 import edu.matc.incarcerationanalyzer.persistence.FacilityDao;
 import edu.matc.incarcerationanalyzer.utility.Convertions;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class XMLOutput {
             wholeList.addFacility(facilityXML);
         }
 
-        return Response.status(200).entity(wholeList.getListFacility()).build();
+        return Response.status(200).entity(wholeList).build();
     }
 
     @POST
@@ -68,6 +70,9 @@ public class XMLOutput {
             groupOfXML.setFacilityXML(facilityXML);
             groupOfXML.setEthnicPopXML(ethnicPopXML);
             groupOfXML.setAgePopXML(agePopXML);
+            /*wholeList.addFacility(facilityXML);
+            wholeList.addEthnic(ethnicPopXML);
+            wholeList.addAge(agePopXML);*/
 
             wholeList.addGroupOfXml(groupOfXML);
 
