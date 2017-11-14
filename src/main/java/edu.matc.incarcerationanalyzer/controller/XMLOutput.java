@@ -84,11 +84,15 @@ public class XMLOutput {
 
     @GET
     @Path("/{pathParam}")
-    public Response getFacilityXMLById(@PathParam("pathParam") String id){
+    public Response getFacilityXMLById(@PathParam("pathParam") String id) {
 
-        facility = facilityDao.getFacility(Integer.parseInt(id));
-        convertions.facilityToXML(facilityXML, facility);
-        wholeList.addFacility(facilityXML);
+            facility = facilityDao.getFacility(Integer.parseInt(id));
+            convertions.facilityToXML(facilityXML, facility);
+            wholeList.addFacility(facilityXML);
+
+            MessageForException  messageForException = new MessageForException();
+            messageForException.setMessage("something went wrong");
+
 
         return Response.status(200).entity(wholeList).build();
     }

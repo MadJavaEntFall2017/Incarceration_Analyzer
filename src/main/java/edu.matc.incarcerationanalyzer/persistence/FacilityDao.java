@@ -7,7 +7,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityDao {
@@ -32,7 +31,7 @@ public class FacilityDao {
     }
 
 
-    public Facility getFacility(int id) {
+    /*public Facility getFacility(int id) {
         Facility facility= null;
         Session session = null;
         try {
@@ -46,7 +45,23 @@ public class FacilityDao {
             }
         }
         return facility;
+    }*/
+
+    public Facility getFacility(int id) {
+        Facility facility= null;
+        Session session = null;
+
+            session = SessionFactoryProvider.getSessionFactory().openSession();
+            facility = (Facility) session.get(Facility.class, id);
+
+            if (session != null) {
+                session.close();
+            }
+
+        return facility;
     }
+
+
 
     public Facility addFacility(Facility facility) {
         Transaction transaction = null;

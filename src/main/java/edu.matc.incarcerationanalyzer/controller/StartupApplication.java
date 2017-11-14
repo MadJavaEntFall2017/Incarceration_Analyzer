@@ -1,5 +1,9 @@
 package edu.matc.incarcerationanalyzer.controller;
 
+import edu.matc.incarcerationanalyzer.entity.HandlerGeneralException;
+import edu.matc.incarcerationanalyzer.entity.HandlerNullPointerException;
+import edu.matc.incarcerationanalyzer.entity.HandlerNumberFormatException;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.HashSet;
@@ -19,6 +23,9 @@ public class StartupApplication extends Application {
         h.add(JsonOutput.class);
         h.add(CheckinOut.class);
         h.add(XMLOutput.class);
+        h.add(HandlerNullPointerException.class);
+        h.add(HandlerNumberFormatException.class);
+        h.add(HandlerGeneralException.class);
         return h;
     }
 }
