@@ -20,28 +20,30 @@ div, body{
 
 }
 #wrapper {
-    width: 800px;
+    width: 700px;
     background-color: #fff;
     margin: 0px auto 0px auto;
-    padding: 20px;
+    padding: 20px 40px 20px 40px;
     background-color: rgba(255, 255, 255, 0.5);
     background: rgba(255, 255, 255, 0.7);
 }
 
 .alignRight {
     float: right;
+
 }
 .alignLeft {
     float: left;
 }
 
 input[type=submit] {
+    margin-top: 10px;
     clear: both;
 }
 
 #buttonbox {
-    width: 200px;
-    margin: 0px auto 20px auto;
+    width: 250px;
+    margin: 20px auto 20px auto;
 }
 
 label {
@@ -75,3 +77,9 @@ h1 {
     margin: 0px;
     font-size: 60px;
 }
+
+fieldset {
+    height: 100px;
+    width: 80px;
+}
+

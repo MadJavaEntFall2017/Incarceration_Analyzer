@@ -1,9 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" session="true" %>
 <div id="wrapper">
-    <%--<h1>Prison Population Statistics</h1>--%>
+    <p>
+        Welcome to the Prison Population API. Our API allows you to get information about
+        prison populations based on location, demographic, or ethnicity demographic. Output comes in
+    </p>
+    <p>
+        To use the Incar
+    </p>
     <form method="post" action="HandleData">
-
         <div>
             <label for="facility" >Facility:</label>
             <select id="facility" name="facility">
@@ -16,6 +21,7 @@
         <div id="buttonbox">
             <div class="alignLeft">
                 <fieldset>
+                    <legend>Output Type</legend>
                     <label for name="json">Json:</label>
                     <input type="radio" name="dataType" value="json" checked><br>
                     <label for name="xml">XML:</label>
@@ -24,6 +30,7 @@
             </div>
             <div class="alignRight">
                 <fieldset>
+                    <legend>Demographic Selector</legend>
                     <label for name="age">Age:</label>
                     <input type="checkbox" id="age" name="age"><br>
                     <label for name="ethnicity">Ethnicity:</label>
