@@ -9,12 +9,20 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
+/**
+ * FacilityDao is a the main data access object for the project. It holds
+ * the methods for getting all facilities or facility by id.
+ * @author Brian Kruse
+ */
 public class FacilityDao {
     private final Logger log = Logger.getLogger(this.getClass());
     Session session = null;
     Transaction tx = null;
 
-
+    /**
+     * Returns all facilities in the database
+     * @return facilities the list of facilities in the database
+     */
     public List<Facility> getAllFacilities() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         List<Facility> facilities = session.createCriteria(Facility.class).list();
@@ -22,7 +30,10 @@ public class FacilityDao {
         return facilities;
     }
 
-    //Get all the facilities as List of objects
+    /**
+     * Returns all facilities in the database
+     * @return facilities the list of facilities in the database
+     */
     public List<FacilityXML> getAllFacilitiesXML() {
         Session session = SessionFactoryProvider.getSessionFactory().openSession();
         List<FacilityXML> facilities = session.createCriteria(Facility.class).list();
@@ -43,51 +54,5 @@ public class FacilityDao {
             }
 
         return facility;
-    }
-
-
-
-    public Facility addFacility(Facility facility) {
-        Transaction transaction = null;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            transaction = session.beginTransaction();
-            session.save(facility);
-            transaction.commit();
-        } catch (HibernateException he){
-            if (transaction != null) {
-                try {
-                    transaction.rollback();
-                } catch (HibernateException he2) {
-                    log.error("Error rolling back save of facility: " + facility, he2);
-                }
-            }
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-        return facility;
-    }
-
-    public void deleteFacility(Facility facility) {
-
-        Transaction transaction = null;
-        Session session = null;
-        try {
-            session = SessionFactoryProvider.getSessionFactory().openSession();
-            transaction = session.beginTransaction();
-            session.delete(facility);
-            transaction.commit();
-        } catch (HibernateException he) {
-            if (transaction != null) {
-                try {
-                    transaction.rollback();
-                } catch (HibernateException he2) {
-                    log.error("Error rolling back delete of facility id: " + facility, he2);
-                }
-            }
-        }
     }
 }
