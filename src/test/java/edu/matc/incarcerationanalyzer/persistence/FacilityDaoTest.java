@@ -3,7 +3,6 @@ package edu.matc.incarcerationanalyzer.persistence;
 import edu.matc.incarcerationanalyzer.entity.Agepop;
 import edu.matc.incarcerationanalyzer.entity.Ethnicitypop;
 import edu.matc.incarcerationanalyzer.entity.Facility;
-//import org.apache.log4j.Logger;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;

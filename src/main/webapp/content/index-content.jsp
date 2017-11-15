@@ -1,39 +1,42 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page language="java" session="true" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: josephcaughlin
-  Date: 11/4/17
-  Time: 10:38 AM
-  To change this template use Preferences | File and Code Templates--%>
+<div id="wrapper">
+    <%--<h1>Prison Population Statistics</h1>--%>
+    <form method="post" action="HandleData">
 
-<h1>Hey There</h1>
-
-<h2>Hello world!</h2>
-<form method="post" action="HandleData">
-
-    <div class="form-group row">
-        <label for="facility" class="col-form-label col-md-2">Type</label>
-        <select class="custom-select ml-3" id="facility" name="facility">
-            <option value="all">All</option>
-            <c:forEach var="facility" items="${facilities}">
-                <option value="${facility.facilityid}">${facility.name}</option>
-            </c:forEach>
-        </select>
+        <div>
+            <label for="facility" >Facility:</label>
+            <select id="facility" name="facility">
+                <option value="all">All</option>
+                <c:forEach var="facility" items="${facilities}">
+                    <option value="${facility.facilityid}">${facility.name}</option>
+                </c:forEach>
+            </select>
+        </div>
+        <div id="buttonbox">
+            <div class="alignLeft">
+                <fieldset>
+                    <label for name="json">Json:</label>
+                    <input type="radio" name="dataType" value="json" checked><br>
+                    <label for name="xml">XML:</label>
+                    <input type="radio" name="dataType" value="xml"><br>
+                </fieldset>
+            </div>
+            <div class="alignRight">
+                <fieldset>
+                    <label for name="age">Age:</label>
+                    <input type="checkbox" id="age" name="age"><br>
+                    <label for name="ethnicity">Ethnicity:</label>
+                    <input type="checkbox" id="ethnicity" name="ethnicity"><br>
+                </fieldset>
+            </div>
+        </div>
+         <input type="submit" id="submit" name="submit" />
+    </form>
+    <div id="output">
+        <jsp:include page="/content/output.jsp"/>
     </div>
-
-    <br />
-    <div>
-        <input type="radio" name="dataType" value="json" checked> JSON<br>
-        <input type="radio" name="dataType" value="xml"> XML<br>
-    </div>
-    <div>
-        Age:    <input type="checkbox" id="age" name="age"><br>
-        Ethnic: <input type="checkbox" id="ethnic" name="ethnic"><br>
-    </div>
-
-     <input type="submit" id="submit" name="submit" />
-</form>
+</div>
 <!--
 <ul>
     <li><a href="http://localhost:8080/teamproject/json/facility">Item</a></li>

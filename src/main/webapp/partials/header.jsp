@@ -9,11 +9,10 @@
 <body>
 <!--Header-->
 <!--Start of container-->
-<div class="container">
+<div>
 
-        <div class="jumbotron-fluid">
-            <h1 class="display-3"><c:out value="${heading}" default="Hey Ya"/></h1>
-
+        <div class="header">
+            <h1>Prison Population Statistics</h1>
         </div>
 
 
