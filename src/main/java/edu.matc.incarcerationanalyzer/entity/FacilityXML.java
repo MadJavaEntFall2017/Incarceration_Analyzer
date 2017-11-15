@@ -2,8 +2,10 @@ package edu.matc.incarcerationanalyzer.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "facility")
+@XmlType(propOrder = {"id", "name", "population"})
 public class FacilityXML {
 
     private Integer id;

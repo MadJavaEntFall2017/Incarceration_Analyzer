@@ -2,8 +2,11 @@ package edu.matc.incarcerationanalyzer.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "age")
+@XmlType(propOrder = {"ageId", "facilityId", "under18", "age18to21", "age22to25", "age26to30", "age31to35", "age36to40",
+            "age41to45", "age46to50", "age51to55", "age56to60", "age61to65", "over65"})
 public class AgePopXML {
     private Integer ageId;
     private Integer facilityId;

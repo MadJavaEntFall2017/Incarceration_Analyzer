@@ -2,8 +2,10 @@ package edu.matc.incarcerationanalyzer.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement
+@XmlType(propOrder = {"ethnicId", "facilityId", "asian", "black", "hispanic", "white"})
 public class EthnicPopXML {
     private Integer ethnicId;
     private Integer facilityId;
